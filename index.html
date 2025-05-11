@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MovieZone - Book Your Tickets</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Login/Signup Screen -->
+    <div id="login-screen" class="screen active">
+      <h1>🎬 MovieZone</h1>
+      <p class="tagline">Welcome! Sign in or create an account</p>
+
+      <!-- Login Form -->
+      <form onsubmit="event.preventDefault(); login();" id="login-form" class="signin-form">
+        <label for="username">👤 Username</label>
+        <input type="text" id="username" placeholder="Enter your name" required />
+
+        <label for="password">🔒 Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
+
+        <button type="submit">Sign In</button>
+        <p>Don't have an account? <a href="#" onclick="toggleAuth('signup')">Sign Up</a></p>
+      </form>
+
+      <!-- Signup Form -->
+      <form onsubmit="event.preventDefault(); signup();" id="signup-form" class="signin-form" style="display: none;">
+        <label for="new-username">👤 Username</label>
+        <input type="text" id="new-username" placeholder="Create username" required />
+
+        <label for="email">📧 Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required />
+
+        <label for="new-password">🔒 Password</label>
+        <input type="password" id="new-password" placeholder="Create a password" required />
+
+        <button type="submit">Sign Up</button>
+        <p>Already have an account? <a href="#" onclick="toggleAuth('login')">Sign In</a></p>
+      </form>
+    </div>
+
+    <!-- Movie Selection Screen -->
+    <div id="movie-screen" class="screen">
+      <h2>Welcome, <span id="user-name"></span>! Choose Your Movie</h2>
+      <div class="date-picker">
+        <label for="booking-date">📅 Select Date:</label>
+        <input type="date" id="booking-date" required>
+      </div>
+      <div class="movie-grid">
+        <div class="movie-card" onclick="chooseMovie('Avengers: Endgame', 200)">
+          <img src="https://www.themoviedb.org/t/p/w500/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg" alt="Avengers">
+          <div class="movie-info">
+            <h3>Avengers</h3>
+            <p>⭐ 8.5 | Action, Sci-Fi</p>
+            <p><strong>₹200</strong></p>
+          </div>
+        </div>
+        <div class="movie-card" onclick="chooseMovie('Joker', 180)">
+          <img src="https://www.themoviedb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg" alt="Joker">
+          <div class="movie-info">
+            <h3>Joker</h3>
+            <p>⭐ 8.4 | Crime, Drama</p>
+            <p><strong>₹180</strong></p>
+          </div>
+        </div>
+        <div class="movie-card" onclick="chooseMovie('Inception', 250)">
+          <img src="https://www.themoviedb.org/t/p/w500/edv5CZvWj09upOsy2Y6IwDhK8bt.jpg" alt="Inception">
+          <div class="movie-info">
+            <h3>Inception</h3>
+            <p>⭐ 8.8 | Action, Sci-Fi</p>
+            <p><strong>₹250</strong></p>
+          </div>
+        </div>
+      </div>
+      <button id="next-btn" onclick="goToSeatSelection()">Next</button>
+    </div>
+
+    <!-- Seat Selection Screen -->
+    <div id="seat-screen" class="screen">
+      <h2>🎟 Seats for <span id="movie-title"></span></h2>
+      <div class="seats-grid" id="seats"></div>
+      <p>Selected: <span id="count">0</span> seat(s) | Total: ₹<span id="total">0</span></p>
+      <button onclick="confirmBooking()">Confirm Booking</button>
+    </div>
+
+    <!-- Booking Summary Screen -->
+    <div id="summary-screen" class="screen">
+      <h2>✅ Booking Confirmed!</h2>
+      <p><strong>Name:</strong> <span id="summary-name"></span></p>
+      <p><strong>Movie:</strong> <span id="summary-movie"></span></p>
+      <p><strong>Date:</strong> <span id="summary-date"></span></p>
+      <p><strong>Seats:</strong> <span id="summary-seats"></span></p>
+      <p><strong>Total:</strong> ₹<span id="summary-total"></span></p>
+      <button onclick="location.reload()">Book Another</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?fit=crop&w=1600&q=80') no-repeat center center/cover;
+    color: white;
+    min-height: 100vh;
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+}
+
+.container {
+  padding: 30px;
+  text-align: center;
+}
+
+.screen {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #ffcc00;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+input {
+  padding: 12px;
+  font-size: 16px;
+  width: 280px;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 12px 25px;
+  background-color: #ffcc00;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #e6b800;
+}
+
+.movie-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.movie-card {
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 180px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.movie-card p {
+  margin: 0;
+  padding: 10px;
+  font-weight: bold;
+  background: #222;
+  color: #fff;
+}
+
+.seats-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 40px);
+  gap: 10px;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.seat {
+  width: 40px;
+  height: 40px;
+  background: #888;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+.seat.selected {
+  background-color: #28a745;
+}
+
+.seat.booked {
+  background-color: #dc3545;
+  cursor: not-allowed;
+}
